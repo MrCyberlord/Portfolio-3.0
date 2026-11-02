@@ -26,7 +26,15 @@ Preview the production bundle with `npm run preview` after building.
 
 ## Scope
 
-The portfolio contains the completed Milestone 1 hero and the Milestone 2 Skills section. Skills navigation scrolls to the section; `/#skills` opens it directly. Projects, experience, and contact are reserved for later work and still open coming-soon dialogs. No placeholder email address or external profile is used.
+The portfolio contains Hero, Skills, Projects, Experience and Contact. All navigation links scroll to real sections; `/#skills`, `/#projects`, `/#experience` and `/#contact` open them directly. Contact uses the supplied LinkedIn and X profiles. Email and phone are configured centrally and displayed on request through reveal controls.
+
+The transparent navbar is fixed across sections. Home, Skills, Projects, Experience and Contact use smooth scrolling, update the active section indicator, and respect reduced motion with instant navigation. Section spacing clears the header; the hero retains its original navigation space. The mobile menu stays available throughout the page and closes after selection.
+
+Projects features ResearchLab, RivalIQ, Runningo and ExplainBot using dimensional navy cards, local illustrative preview placeholders and the supplied GitHub links. Screenshots and optional demo/video links can be configured in `src/components/projects/projects.ts`. See [the Projects implementation notes](design/PROJECTS.md).
+
+Experience connects Luxia AI, Magnibot and Informist through a glowing scroll-driven timeline, a responsive chapter index and clearly qualified achievement metrics. Career data lives in `src/components/experience/experience.ts`. See [the Experience implementation notes](design/EXPERIENCE.md).
+
+Contact uses a responsive neumorphic grid with profile links and independent reveal/copy actions. Set your email and phone in `src/components/contact/contactConfig.ts`; both can copy before reveal once configured. See [the Contact implementation notes](design/CONTACT.md) for feedback, accessibility and validation details.
 
 The newly generated scene closely follows the supplied galaxy reference: a diagonal Milky Way, large blue planet, smaller moon, lone explorer, and mountainous foreground. A portrait adaptation preserves the composition on phones. The supplied screenshot is not used as a background. Artwork is isolated in `src/components/CosmicScene.tsx` so it can later be replaced by separately licensed layers. The current composite supports gentle parallax as a whole; planets and terrain cannot yet move independently. Source files, optimized WebP assets, and generation prompts are documented in [design/ARTWORK.md](design/ARTWORK.md).
 

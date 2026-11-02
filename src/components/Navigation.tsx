@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 const destinations = [
   "Home",
@@ -10,17 +11,55 @@ const destinations = [
 
 export type Destination = (typeof destinations)[number];
 
-type NavigationProps = {
-  onNavigate: (
-    destination: Destination,
-    returnFocusElement?: HTMLElement | null,
-  ) => void;
-};
+type NavigationProps = { onNavigate: (destination: Destination) => void };
 
 export default function Navigation({ onNavigate }: NavigationProps) {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<Destination>("Home");
   const header = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      const tween = gsap.from(header.current, {
+        opacity: 0,
+        y: -10,
+        duration: 1,
+        delay: 0.2,
+      });
+      return () => tween.revert();
+    });
+    return () => media.revert();
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      let current: Destination = "Home";
+      for (const name of destinations) {
+        const section = document.getElementById(name.toLowerCase());
+        if (
+          section &&
+          section.getBoundingClientRect().top <= innerHeight * 0.35
+        )
+          current = name;
+      }
+      setActive(current);
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -58,9 +97,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   }, [open]);
 
   const navigate = (destination: Destination) => {
-    // The selected mobile link will be hidden while its dialog is open.
-    // Give the caller a visible focus target to restore when that dialog closes.
-    onNavigate(destination, open ? toggle.current : undefined);
+    onNavigate(destination);
     setOpen(false);
   };
 
@@ -73,7 +110,12 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         className="brand flex items-center gap-3"
         href="#home"
         aria-label="Portfolio home"
-        onClick={() => setOpen(false)}
+        onClick={(event) => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+            return;
+          event.preventDefault();
+          navigate("Home");
+        }}
       >
         <svg
           className="brand-mark"
@@ -121,26 +163,26 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         aria-label="Main navigation"
         className={`nav-links ${open ? "is-open" : ""}`}
       >
-        {destinations.map((destination) =>
-          destination === "Home" ? (
-            <a
-              key={destination}
-              href="#home"
-              aria-current="page"
-              onClick={() => setOpen(false)}
-            >
-              Home
-            </a>
-          ) : (
-            <button
-              key={destination}
-              type="button"
-              onClick={() => navigate(destination)}
-            >
-              {destination}
-            </button>
-          ),
-        )}
+        {destinations.map((destination) => (
+          <a
+            key={destination}
+            href={`#${destination.toLowerCase()}`}
+            aria-current={active === destination ? "location" : undefined}
+            onClick={(event) => {
+              if (
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey
+              )
+                return;
+              event.preventDefault();
+              navigate(destination);
+            }}
+          >
+            {destination}
+          </a>
+        ))}
       </nav>
 
       <span className="nav-note">
