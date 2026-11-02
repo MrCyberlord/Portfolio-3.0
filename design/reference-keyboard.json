@@ -1,0 +1,161 @@
+﻿{
+  "repository": "https://github.com/Naresh-Khatri/3d-portfolio",
+  "commit": "19a1f148edc0fc07efd6c728adc91a649bf5d0d7",
+  "assets": [
+    {
+      "path": "LICENSE",
+      "gitBlob": "0d9fe1ba7e1f1661d4e15b1f97b03a4dfc82e9e9",
+      "size": 1070
+    },
+    {
+      "path": "public/assets/keyboard/bongo-frames.glb",
+      "gitBlob": "861b224ea74bd00636fa0939d3190a502c2424f5",
+      "size": 28292
+    },
+    {
+      "path": "public/assets/keyboard/keycaps.glb",
+      "gitBlob": "beb067aafa25e09953f9e5c7b1e3610fc50222ad",
+      "size": 204284
+    },
+    {
+      "path": "public/assets/keyboard/logos/aws.svg",
+      "gitBlob": "4470aa889464431a23cb1830821b8a115acfda27",
+      "size": 3205
+    },
+    {
+      "path": "public/assets/keyboard/logos/bun.svg",
+      "gitBlob": "597dccd5e327500ef3b62aa79ce9405ef74b59d4",
+      "size": 1747
+    },
+    {
+      "path": "public/assets/keyboard/logos/claude.svg",
+      "gitBlob": "caa6d623d0d1dad16e3d568e6d69aa4992b0fa46",
+      "size": 1961
+    },
+    {
+      "path": "public/assets/keyboard/logos/cloudflare.svg",
+      "gitBlob": "d2afc528395fc975e015fd1756e9c28f9041b8b5",
+      "size": 1218
+    },
+    {
+      "path": "public/assets/keyboard/logos/docker.svg",
+      "gitBlob": "45617eca3aa25d4492624355c549d6a18b7a8eab",
+      "size": 1805
+    },
+    {
+      "path": "public/assets/keyboard/logos/expo.svg",
+      "gitBlob": "cf6ebee1109fa8b1010b62cb572fd2957046d001",
+      "size": 491
+    },
+    {
+      "path": "public/assets/keyboard/logos/express.svg",
+      "gitBlob": "fa9482ea5822879bb2a870828d17f06887819004",
+      "size": 813
+    },
+    {
+      "path": "public/assets/keyboard/logos/gcp.svg",
+      "gitBlob": "36ab04da9da5abb2958270719fdb4109d2c473df",
+      "size": 704
+    },
+    {
+      "path": "public/assets/keyboard/logos/git.svg",
+      "gitBlob": "d05b4293c09675faf9a157e504da3b2d07fcd0e5",
+      "size": 742
+    },
+    {
+      "path": "public/assets/keyboard/logos/homeassistant.svg",
+      "gitBlob": "5f56720ede62aa8389597e867903888203a5a4b7",
+      "size": 721
+    },
+    {
+      "path": "public/assets/keyboard/logos/js.svg",
+      "gitBlob": "46560e570b5a1bc3967803453c72126df8562d81",
+      "size": 1014
+    },
+    {
+      "path": "public/assets/keyboard/logos/linux.svg",
+      "gitBlob": "3ebdf62f20e5664ce7ef5cb70324d8c5a3f8a639",
+      "size": 5503
+    },
+    {
+      "path": "public/assets/keyboard/logos/mongodb.svg",
+      "gitBlob": "a037627e85847d20466c841b9ffebae80e898a21",
+      "size": 567
+    },
+    {
+      "path": "public/assets/keyboard/logos/nextjs.svg",
+      "gitBlob": "bb239764e7b299d510ceec3330b8d7cc09fb0522",
+      "size": 362
+    },
+    {
+      "path": "public/assets/keyboard/logos/nginx.svg",
+      "gitBlob": "71473606de836f117701aa1f2e36728c61a60e4c",
+      "size": 453
+    },
+    {
+      "path": "public/assets/keyboard/logos/nodejs.svg",
+      "gitBlob": "ee705c762bbb8bb48db6a01f326a9c969733365b",
+      "size": 1648
+    },
+    {
+      "path": "public/assets/keyboard/logos/postgres.svg",
+      "gitBlob": "a733f9f5244bcc42a6837083c4121975d0f72757",
+      "size": 5245
+    },
+    {
+      "path": "public/assets/keyboard/logos/proxmox.svg",
+      "gitBlob": "ea53294cc1e53443feb83ad91c789211771353c5",
+      "size": 1528
+    },
+    {
+      "path": "public/assets/keyboard/logos/react.svg",
+      "gitBlob": "2c277b316fde966babf75c00b50b4a1aeed090b6",
+      "size": 2966
+    },
+    {
+      "path": "public/assets/keyboard/logos/steam.svg",
+      "gitBlob": "b16e3d7b246cddafa41740bca66e4286f26330b5",
+      "size": 1076
+    },
+    {
+      "path": "public/assets/keyboard/logos/tailwind.svg",
+      "gitBlob": "12bdfef39f5e47d6875752710750bb5055da9666",
+      "size": 642
+    },
+    {
+      "path": "public/assets/keyboard/logos/ts.svg",
+      "gitBlob": "70755bd421dda8f1884287aa42dbd37a77e05718",
+      "size": 1334
+    },
+    {
+      "path": "public/assets/keyboard/logos/vim.svg",
+      "gitBlob": "835f553c028499a7a0d7553cc40fc392da71a7cf",
+      "size": 1836
+    },
+    {
+      "path": "public/assets/keyboard/logos/vue.svg",
+      "gitBlob": "159b528bcc629fb9a6c1a780e0e3a3bc181c4332",
+      "size": 242
+    },
+    {
+      "path": "public/assets/keycap-sounds/press.mp3",
+      "gitBlob": "c272f7a6cfc1bcc26c2b56cc7c0b8a1653f9926d",
+      "size": 2612
+    },
+    {
+      "path": "public/assets/keycap-sounds/release.mp3",
+      "gitBlob": "4da558aab76c6e0f3131bdb6d4fc0fad610c3516",
+      "size": 2088
+    },
+    {
+      "path": "public/fonts/ArchivoBlack-OFL.txt",
+      "gitBlob": "8894736938f94c6c7a81f27501f26151c412fcbc",
+      "size": 4492
+    },
+    {
+      "path": "public/fonts/helvetiker_regular.typeface.json",
+      "gitBlob": "42f14c24b38cc02f786fc93ed581e0cb425a1700",
+      "size": 158086
+    }
+  ]
+}

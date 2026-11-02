@@ -1,0 +1,33 @@
+.portfolio-cursor-blob,
+.portfolio-cursor-dot {
+  position: fixed;
+  opacity: 0;
+  backdrop-filter: invert(100%);
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.portfolio-cursor-blob {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  z-index: 100;
+}
+.portfolio-cursor-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 101;
+}
+@media (hover: none),
+  (pointer: coarse),
+  (max-width: 768px),
+  (prefers-reduced-motion: reduce) {
+  .portfolio-cursor-blob,
+  .portfolio-cursor-dot {
+    display: none;
+  }
+}

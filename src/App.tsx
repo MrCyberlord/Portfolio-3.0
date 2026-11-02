@@ -1,8 +1,10 @@
 ﻿import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import ElasticCursor from "./components/ElasticCursor";
 import CosmicScene from "./components/CosmicScene";
 import Navigation from "./components/Navigation";
 import type { Destination } from "./components/Navigation";
+import SkillsSection from "./components/skills/SkillsSection";
 import "./App.css";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -83,7 +85,27 @@ export default function App() {
     return () => motion.revert();
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash !== "#skills") return;
+    const frame = requestAnimationFrame(() => {
+      document
+        .getElementById("skills")
+        ?.scrollIntoView({ behavior: "instant" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   const navigate = (target: Destination, trigger?: HTMLElement | null) => {
+    if (target === "Skills") {
+      const section = document.getElementById("skills");
+      section?.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+      });
+      section?.focus({ preventScroll: true });
+      return;
+    }
     setDestination(target);
     returnFocus.current = trigger ?? null;
     dialog.current?.showModal();
@@ -91,6 +113,7 @@ export default function App() {
 
   return (
     <main>
+      <ElasticCursor />
       <a className="skip-link" href="#hero-copy">
         Skip to content
       </a>
@@ -110,6 +133,7 @@ export default function App() {
             <span>FULL-STACK DEVELOPER</span>
             <span>•</span>
             <span>BUILDER</span>
+            <span className="eyebrow-line" />
           </p>
           <h1 id="hero-title" data-reveal>
             With AI, the
@@ -147,6 +171,7 @@ export default function App() {
           </span>
         </div>
       </section>
+      <SkillsSection />
       <dialog
         ref={dialog}
         className="coming-soon"
