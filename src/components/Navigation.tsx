@@ -3,6 +3,7 @@ import gsap from "gsap";
 
 const destinations = [
   "Home",
+  "About",
   "Skills",
   "Projects",
   "Experience",

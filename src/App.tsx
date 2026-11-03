@@ -8,6 +8,7 @@ import SkillsSection from "./components/skills/SkillsSection";
 import ProjectsSection from "./components/projects/ProjectsSection";
 import ExperienceSection from "./components/experience/ExperienceSection";
 import ContactSection from "./components/contact/ContactSection";
+import AboutSection from "./components/about/AboutSection";
 import "./App.css";
 
 export default function App() {
@@ -61,7 +62,7 @@ export default function App() {
 
   useEffect(() => {
     const id = window.location.hash.slice(1);
-    if (id !== "skills" && id !== "projects" && id !== "experience" && id !== "contact") return;
+    if (id !== "about" && id !== "skills" && id !== "projects" && id !== "experience" && id !== "contact") return;
     const frame = requestAnimationFrame(() => {
       document
         .getElementById(id)
@@ -127,6 +128,7 @@ export default function App() {
           </span>
         </div>
       </section>
+      <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ExperienceSection />
