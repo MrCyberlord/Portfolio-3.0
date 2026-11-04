@@ -113,7 +113,7 @@ export default function App() {
             <span className="limitless">limitless.</span>
           </h1>
           <p className="secondary" data-reveal>
-            I'm here to explore them.
+            Imagination sets the bar. We build beyond it.
           </p>
           <div className="hero-actions flex flex-wrap gap-3" data-reveal>
           </div>
@@ -122,7 +122,7 @@ export default function App() {
           <p>
             <span className="footer-label">DRIVEN BY CURIOSITY</span>
             <br />
-            Built for what comes next.
+            Powered by persistence.
           </p>
           <span className="coordinates">
           </span>

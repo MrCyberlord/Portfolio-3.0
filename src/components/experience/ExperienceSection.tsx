@@ -1,3 +1,4 @@
+import SectionIntro from "../SectionIntro";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, MouseEvent } from "react";
 import gsap from "gsap";
@@ -288,20 +289,10 @@ export default function ExperienceSection() {
       ref={section}
       className="experience-section"
       tabIndex={-1}
-      aria-labelledby="experience-title"
+      aria-labelledby="experience-section-title"
     >
       <div className="experience-inner">
-        <header className="experience-heading" data-experience-reveal>
-          <p className="experience-eyebrow">
-            <span />
-            04 / THE JOURNEY
-          </p>
-          <h2 id="experience-title">Experience</h2>
-          <p className="experience-subtitle">
-            4+ years of building products, solving problems and turning ideas
-            into real-world software.
-          </p>
-        </header>
+        <SectionIntro id="experience-section-title" number="04" title="THE JOURNEY" summary="4+ years of building products, solving problems and turning ideas into real-world products." className="experience-heading" reveal="experience" />
         <div className="experience-layout">
           <aside className="experience-index" aria-label="Career chapter index">
             <div className="experience-index-orbit" aria-hidden="true">

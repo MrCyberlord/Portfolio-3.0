@@ -1,3 +1,4 @@
+import SectionIntro from "../SectionIntro";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -86,22 +87,10 @@ export default function ContactSection() {
       className="contact-section"
       ref={section}
       tabIndex={-1}
-      aria-labelledby="contact-title"
+      aria-labelledby="contact-section-title"
     >
       <div className="contact-inner">
-        <header className="contact-heading">
-          <p className="contact-eyebrow">
-            <span />
-            05 / SAY HELLO
-          </p>
-          <h2 id="contact-title">
-            Let's Connect<span>.</span>
-          </h2>
-          <p className="contact-subtitle">
-            Have an idea, an opportunity or just want to talk tech? I'm always
-            up for a good conversation.
-          </p>
-        </header>
+        <SectionIntro id="contact-section-title" number="05" title="SAY HELLO" summary="Have an idea, an opportunity or just want to talk tech? I'm always up for a good conversation." className="contact-heading" />
         <div className="contact-grid">
           <div className="contact-card-reveal" data-contact-reveal>
             <SocialContactCard
@@ -126,13 +115,13 @@ export default function ContactSection() {
             />
           </div>
         </div>
-        <footer className="contact-footer">
+      </div>
+      <footer className="contact-footer">
           <span>Thanks for stopping by.</span>
           <a href="#home">
             Back to top<span aria-hidden="true">↑</span>
           </a>
-        </footer>
-      </div>
+      </footer>
     </section>
   );
 }

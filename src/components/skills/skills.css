@@ -53,13 +53,23 @@
     radial-gradient(circle at 93% 82%, #b8dfff8c 0 0.8px, transparent 1.5px);
 }
 .ref-skills:focus { outline: none; }
-.ref-skills-heading { text-align: center; margin: 0 0 16px; }
+.ref-skills-heading { width: 100%; max-width: 1180px; text-align: left; margin: 0 auto 16px; }
 .ref-skills-heading h2 {
-  font-family: "Skills Unbounded", sans-serif;
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 1.15;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #96c8e2;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 0.17em;
   margin: 0;
+}
+.ref-skills-heading h2 > span {
+  width: 30px;
+  height: 1px;
+  background: #79cbea;
 }
 .ref-skills-layout { width: 100%; display: grid; gap: 16px; max-width: 1180px; margin: 0 auto; }
 .ref-skills-keyboard-column { min-width: 0; }
@@ -295,33 +305,73 @@
 @media (min-width: 640px) {
   .ref-skills { padding: 36px 32px; }
   .ref-skills-layout { max-width: 740px; }
+  .ref-skills-heading { max-width: 740px; }
+}
+@media (max-width: 639px) {
+  .ref-skills {
+    --skills-stage-height: clamp(150px, 32svh, 280px);
+    --skills-heading-space: 28px;
+    height: 100svh;
+    padding-bottom: 16px;
+  }
+  .ref-skills-heading { flex-shrink: 0; margin-bottom: 12px; }
+  .ref-skills-layout {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: var(--skills-stage-height) minmax(0, 1fr);
+    gap: 10px;
+  }
+  .ref-skills-viewport { height: var(--skills-stage-height); }
+  .skill-details-panel { height: 100%; padding: 16px; border-radius: 16px; }
+  .skill-details-top, .skill-details-status { flex-shrink: 0; }
+  .skill-details-content {
+    min-height: 0;
+    padding-top: 12px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #72bddf #173b57;
+  }
+  .skill-details-panel h3 { font-size: 27px; }
+  .skill-details-icon { top: 12px; width: 40px; height: 40px; }
+  .skill-details-icon img { width: 30px; height: 30px; }
+  .skill-details-category { margin-bottom: 8px; }
+  .skill-details-description { margin: 10px 0 12px; font-size: 13px; line-height: 1.5; }
+  .skill-details-uses ul { gap: 5px; }
+  .skill-details-status { margin-top: 10px; padding-top: 10px; }
+  .ref-skills-fallback .ref-skills-viewport { height: 100%; overflow-y: auto; }
+  .ref-skills-fallback .ref-skills-grid { padding: 6px; gap: 3px; }
+  .ref-skills-fallback .ref-skill-card { min-height: 32px; }
 }
 @media (min-width: 1024px) {
   .ref-skills {
-    --skills-stage-height: clamp(350px, 62svh, 500px);
-    --skills-heading-space: calc(clamp(28px, 4vw, 48px) * 1.15 + 24px);
+    --skills-stage-height: min(560px, calc(100svh - var(--navigation-height) - var(--skills-heading-space) - 48px));
+    --skills-heading-space: 74px;
     --keyboard-glow-position: 32% 54%;
     --card-glow-position: 84% 54%;
-    padding: 36px 5%;
-    /* Center from viewport and keyboard dimensions, never changing card height. */
-    padding-top: max(36px, calc((100svh - var(--skills-stage-height) - var(--skills-heading-space)) / 2));
+    padding: 24px 5%;
   }
-  .ref-skills-heading { margin-bottom: 24px; }
+  .ref-skills-heading { max-width: 1320px; margin-bottom: 24px; }
   .ref-skills-layout {
-    max-width: 1180px; grid-template-columns: minmax(0,1fr) 310px;
-    align-items: center; gap: 24px;
+    max-width: 1320px; grid-template-columns: minmax(0,1fr) 310px;
+    height: var(--skills-stage-height);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch; gap: 24px;
   }
   .ref-skills-viewport { height: var(--skills-stage-height); }
-  .skill-details-panel { padding: 22px; }
+  .skill-details-panel { height: 100%; padding: 22px; }
+  .skill-details-top, .skill-details-status { flex-shrink: 0; }
+  .skill-details-content {
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #72bddf #173b57;
+  }
 }
 @media (max-height: 700px) and (min-width: 1024px) {
   .ref-skills {
-    --skills-heading-space: 57.4px;
-    padding-block: 24px;
-    padding-top: max(24px, calc((100svh - var(--skills-stage-height) - var(--skills-heading-space)) / 2));
+    --skills-heading-space: 66px;
   }
   .ref-skills-heading { margin-bottom: 16px; }
-  .ref-skills-heading h2 { font-size: 36px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .skill-details-content {

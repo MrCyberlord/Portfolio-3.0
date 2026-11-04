@@ -1,3 +1,4 @@
+import SectionIntro from "../SectionIntro";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,8 +24,10 @@ export default function AboutSection() {
           scrollTrigger: { trigger: root, start: "top 75%", once: true },
         });
         gsap.from(root.querySelector(".about-portrait"), {
+          x: 64,
           opacity: 0,
-          duration: 0.85,
+          duration: 0.9,
+          ease: "power3.out",
           scrollTrigger: { trigger: root, start: "top 75%", once: true },
         });
       }, root);
@@ -34,17 +37,16 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="about-section" ref={section} aria-labelledby="about-title" tabIndex={-1}>
+    <section id="about" className="about-section" ref={section} aria-labelledby="about-section-title" tabIndex={-1}>
       <div className="about-layout">
-        <p className="about-eyebrow" data-about-reveal><span aria-hidden="true" /> BEHIND THE CODE</p>
+        <SectionIntro id="about-section-title" number="01" title="A LITTLE ABOUT ME" summary="" className="about-section-intro" reveal="about" />
         <h2 id="about-title" data-about-reveal><span className="about-greeting">Hi, I’m</span><span className="about-name">Aman Jain<span className="about-title-dot">.</span></span></h2>
         <div className="about-introduction" data-about-reveal>
-          <p className="about-lead">I’m a <strong>software developer</strong> with <strong>4+ years of experience</strong> turning ideas into real-world applications.</p>
-          <p>My journey began with frontend development, expanded into full-stack engineering and now extends into AI-powered systems.</p>
+          <p className="about-lead">I'm an <strong>AI engineer</strong> with a foundation in full-stack development and <strong>4+ years of software engineering experience</strong>.</p>
         </div>
         <div className="about-story" data-about-reveal>
-          <p>These days, I’m exploring how <strong>RAG, AI agents</strong> and modern web technologies can work together to solve meaningful problems.</p>
-          <p>I enjoy understanding how things work, experimenting with new ideas and building projects that challenge what I already know. I’m always eager to research and learn new technologies, especially when they open up new possibilities or offer better ways to solve problems.</p>
+          <p>I started in frontend, grew into full-stack engineering and now build with <strong>RAG, AI agents and LLMs</strong>. My web development background means I don't stop at the model. I build the whole product around it, from data and retrieval to the interface.</p>
+          <p>I enjoy understanding how things work under the hood, experimenting with new technologies and finding better ways to solve real-world problems.</p>
         </div>
         <div className="about-signature" data-about-reveal>
           <div className="about-mantra">

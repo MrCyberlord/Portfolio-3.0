@@ -475,7 +475,13 @@ h1 {
     calc((100svh - var(--skills-stage-height, 100svh) - var(--skills-heading-space, 0px)) / 2)
   );
 }
-#projects { padding-top: max(104px, calc(var(--navigation-height) + 24px)); }
+@media (min-width: 1024px) {
+  #skills { padding-top: calc(var(--navigation-height) + 16px); }
+}
+@media (max-width: 639px) {
+  #skills { padding-top: calc(var(--navigation-height) + 12px); }
+}
+#projects { padding-top: calc(var(--navigation-height) + 12px); }
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

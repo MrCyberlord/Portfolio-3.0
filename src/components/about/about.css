@@ -1,22 +1,24 @@
 .about-section {
   position: relative;
   isolation: isolate;
+  overflow: clip;
   min-height: 100svh;
+  font-family: 'Manrope', sans-serif;
   display: grid;
   align-items: center;
-  padding: calc(var(--navigation-height, 92px) + 26px) clamp(22px, 6vw, 100px) 64px;
+  padding: calc(var(--navigation-height, 92px) + 16px) clamp(22px, 6vw, 100px) 32px;
   background: radial-gradient(ellipse at 84% 46%, #10345145, transparent 47%), #03101d;
 }
 .about-layout {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1120px;
   margin-inline: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(100px, 0.7fr);
   grid-template-areas: 'eyebrow eyebrow' 'title title' 'intro portrait' 'story story' 'signature signature';
   align-items: center;
   column-gap: 20px;
-  row-gap: 24px;
+  row-gap: 14px;
 }
 .about-eyebrow {
   grid-area: eyebrow;
@@ -30,6 +32,7 @@
   font-weight: 500;
   letter-spacing: 0.19em;
 }
+.about-section-intro { grid-area: eyebrow; }
 .about-eyebrow > span { width: 24px; height: 1px; background: #82c7df; }
 .about-section h2 {
   grid-area: title;
@@ -39,17 +42,17 @@
   letter-spacing: -0.055em;
   line-height: 1.03;
 }
-.about-greeting { display: block; margin-bottom: 8px; color: #e6edf5; font-size: clamp(23px, 3vw, 34px); letter-spacing: -0.035em; font-weight: 400; }
-.about-name { display: block; color: #a8e6f8; font-size: clamp(46px, 8vw, 84px); white-space: nowrap; }
+.about-greeting { display: block; margin-bottom: 6px; color: #e6edf5; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.025em; font-weight: 400; }
+.about-name { display: block; color: #a8e6f8; font-size: clamp(38px, 7vw, 60px); font-weight: 600; letter-spacing: -0.045em; white-space: nowrap; }
 .about-title-dot { color: #64b6d4; }
 .about-introduction { grid-area: intro; min-width: 0; }
-.about-story { grid-area: story; }
-.about-introduction p, .about-story p { margin: 0 0 18px; color: #abc0d0; font-size: 15px; line-height: 1.8; }
+.about-story { grid-area: story; min-width: 0; }
+.about-introduction p, .about-story p { margin: 0 0 14px; color: #abc0d0; font-size: 15px; line-height: 1.65; }
 .about-section p:last-child { margin-bottom: 0; }
 .about-section .about-lead { color: #e1eaf3; font-size: 16px; line-height: 1.7; }
 .about-section strong { font-weight: 550; color: #daeaf5; }
 .about-lead strong { color: #f3f7fc; }
-.about-signature { grid-area: signature; display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 4px; }
+.about-signature { grid-area: signature; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-top: 4px; }
 .about-mantra {
   display: inline-flex;
   align-items: center;
@@ -68,36 +71,59 @@
 .about-mantra-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #8fc9e01a; color: #a5deef; }
 .about-mantra svg { width: 21px; height: 21px; }
 .about-mantra > i { width: 3px; height: 3px; background: #6d99ad; border-radius: 50%; }
-.about-signature-note { color: #7997aa; font-size: 11px; letter-spacing: 0.03em; }
+.about-signature-note { max-width: 100%; overflow-wrap: anywhere; color: #7997aa; font-size: 11px; letter-spacing: 0.03em; }
 .about-portrait { grid-area: portrait; position: relative; display: grid; place-items: center; align-self: center; }
 .about-portrait::after { content: ''; position: absolute; left: 18%; right: 18%; bottom: 0; height: 10px; border-radius: 50%; background: #3e8ca91c; filter: blur(7px); z-index: -1; }
 /* The supplied 1792 x 2400 image has large transparent margins. This viewport
    removes only empty padding, with 16px of air around the complete silhouette.
    Original alpha bounds: x=561..1243, y=177..2285. No artwork is edited. */
-.about-portrait-window { position: relative; width: 100%; max-width: 124px; aspect-ratio: 715 / 2141; overflow: hidden; }
+.about-portrait-window { position: relative; width: auto; height: clamp(190px, 30svh, 260px); aspect-ratio: 715 / 2141; overflow: hidden; }
 .about-portrait-window img { position: absolute; display: block; max-width: none; width: 250.62937%; height: 112.09715%; left: -76.22378%; top: -7.51985%; }
 @media (min-width: 600px) and (max-width: 959px) {
-  .about-layout { grid-template-columns: minmax(0, 1fr) minmax(170px, 0.65fr); column-gap: 32px; }
-  .about-portrait-window { max-width: 170px; }
+  .about-layout { grid-template-columns: minmax(0, 1fr) minmax(130px, 0.45fr); grid-template-areas: 'eyebrow portrait' 'title portrait' 'intro portrait' 'story story' 'signature signature'; column-gap: 24px; }
+  .about-name { font-size: clamp(38px, 6vw, 56px); }
+  .about-portrait-window { height: clamp(260px, 35svh, 340px); }
   .about-introduction p, .about-story p { font-size: 17px; }
 }
 @media (min-width: 960px) {
   .about-layout {
-    grid-template-columns: minmax(0, 1.22fr) minmax(240px, 0.78fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.7fr);
     grid-template-areas: 'eyebrow portrait' 'title portrait' 'intro portrait' 'story portrait' 'signature portrait';
-    column-gap: clamp(48px, 7vw, 130px);
-    row-gap: 24px;
+    column-gap: clamp(32px, 4vw, 64px);
+    row-gap: 12px;
   }
   .about-eyebrow { font-size: 11px; }
-  .about-name { font-size: clamp(64px, 6.1vw, 94px); }
-  .about-introduction p, .about-story p { font-size: clamp(15px, 1.08vw, 17px); line-height: 1.78; }
-  .about-section .about-lead { font-size: clamp(18px, 1.35vw, 21px); line-height: 1.65; }
-  .about-portrait-window { width: auto; height: clamp(550px, 76svh, 760px); max-width: none; }
+  .about-name { font-size: clamp(44px, 4.2vw, 60px); }
+  .about-introduction p, .about-story p { font-size: clamp(15px, 1.08vw, 17px); line-height: 1.65; }
+  .about-section .about-lead { font-size: clamp(17px, 1.25vw, 19px); line-height: 1.6; }
+  .about-portrait-window { width: auto; height: clamp(340px, calc(100svh - var(--navigation-height, 92px) - 64px), 560px); max-width: none; }
   .about-signature { margin-top: 8px; }
 }
+@media (max-width: 599px) {
+  .about-section { align-items: start; padding-top: calc(var(--navigation-height, 92px) + 12px); padding-bottom: 20px; }
+  .about-layout {
+    min-height: calc(100svh - var(--navigation-height, 92px) - 32px);
+    grid-auto-rows: max-content;
+    align-content: space-between;
+    grid-template-columns: minmax(0, 1fr) 76px;
+    grid-template-areas: 'eyebrow eyebrow' 'title portrait' 'intro intro' 'story story' 'signature signature';
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+  .about-name { font-size: clamp(32px, 9vw, 42px); }
+  .about-portrait-window { height: clamp(120px, 20svh, 190px); }
+  .about-introduction p, .about-story p { font-size: clamp(14px, 1.8svh, 16px); line-height: 1.65; }
+  .about-story p { margin-bottom: 18px; }
+  .about-section .about-lead { font-size: clamp(15px, 1.9svh, 17px); line-height: 1.6; }
+  .about-signature { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 0; }
+  .about-mantra { max-width: 100%; gap: 12px; padding: 6px 14px 6px 6px; font-size: 13px; }
+  .about-mantra-icon { width: 28px; height: 28px; flex-shrink: 0; }
+}
+@media (max-width: 599px) and (max-height: 740px) {
+  .about-portrait-window { height: clamp(110px, 18svh, 140px); }
+  .about-introduction p, .about-story p { font-size: 14px; line-height: 1.6; }
+}
 @media (max-width: 359px) {
-  .about-layout { column-gap: 14px; grid-template-columns: minmax(0, 1fr) 102px; }
-  .about-introduction p, .about-story p { font-size: 14px; line-height: 1.75; }
-  .about-section .about-lead { font-size: 15px; }
-  .about-mantra { gap: 12px; padding-right: 16px; }
+  .about-introduction p, .about-story p { font-size: 13px; line-height: 1.55; }
+  .about-section .about-lead { font-size: 14px; }
 }

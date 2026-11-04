@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import PortfolioBrand from "./PortfolioBrand";
 
 const destinations = [
   "Home",
@@ -107,44 +108,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
       ref={header}
       className="navigation flex items-center justify-between"
     >
-      <a
-        className="brand flex items-center gap-3"
-        href="#home"
-        aria-label="Portfolio home"
-        onClick={(event) => {
-          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
-            return;
-          event.preventDefault();
-          navigate("Home");
-        }}
-      >
-        <svg
-          className="brand-mark"
-          width="36"
-          height="36"
-          viewBox="0 0 40 40"
-          fill="none"
-          aria-hidden="true"
-        >
-          <circle
-            cx="20"
-            cy="20"
-            r="16"
-            stroke="currentColor"
-            strokeWidth="1.2"
-          />
-          <path
-            d="m11 27 9-17 9 17-9-5-9 5Z"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinejoin="round"
-          />
-          <path d="M20 10v12" stroke="currentColor" />
-        </svg>
-        <span>
-          PORTFOLIO<span className="brand-dot">.</span>
-        </span>
-      </a>
+      <PortfolioBrand />
 
       <button
         ref={toggle}

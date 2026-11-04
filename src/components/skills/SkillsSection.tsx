@@ -1,4 +1,5 @@
-﻿import {
+import SectionIntro from "../SectionIntro";
+import {
   Component,
   Suspense,
   lazy,
@@ -61,9 +62,7 @@ export default function SkillsSection() {
       className={`ref-skills ${fallback ? "ref-skills-fallback" : ""}`}
       aria-labelledby="skills-title"
     >
-      <header className="ref-skills-heading">
-        <h2 id="skills-title">Tech Stack</h2>
-      </header>
+      <SectionIntro id="skills-title" number="02" title="UNDER THE HOOD" summary="The tools and technologies behind the things I build." className="ref-skills-heading" />
       <div className="ref-skills-layout">
         <div className="ref-skills-keyboard-column">
           <div

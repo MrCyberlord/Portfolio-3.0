@@ -1,3 +1,4 @@
+import SectionIntro from "../SectionIntro";
 import { useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
 import gsap from "gsap";
@@ -289,21 +290,7 @@ export default function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <div className="projects-inner">
-        <header className="projects-heading" data-project-reveal>
-          <div>
-            <p className="projects-eyebrow">
-              <span />
-              03 / THE BUILD LOG
-            </p>
-            <h2 id="projects-title">
-              Selected projects<span>.</span>
-            </h2>
-          </div>
-          <p className="projects-intro">
-            Experiments, built into tools.
-            <br />A few things I’ve been working on.
-          </p>
-        </header>
+        <SectionIntro id="projects-title" number="03" title="THE BUILD LOG" summary="Experiments, built into tools." className="projects-heading" reveal="project" />
         <div className="projects-grid">
           {PROJECTS.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
