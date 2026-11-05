@@ -18,6 +18,7 @@ type NavigationProps = { onNavigate: (destination: Destination) => void };
 export default function Navigation({ onNavigate }: NavigationProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<Destination>("Home");
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 0);
   const header = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
 
@@ -39,6 +40,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     let frame = 0;
     const update = () => {
       frame = 0;
+      setScrolled(window.scrollY > 0);
       let current: Destination = "Home";
       for (const name of destinations) {
         const section = document.getElementById(name.toLowerCase());
@@ -106,7 +108,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   return (
     <header
       ref={header}
-      className="navigation flex items-center justify-between"
+      className={`navigation flex items-center justify-between${scrolled ? " navigation--scrolled" : ""}`}
     >
       <PortfolioBrand />
 

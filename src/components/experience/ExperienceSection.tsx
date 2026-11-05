@@ -24,7 +24,7 @@ function CompanyGlyph({ id }: { id: ExperienceId }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {id === "luxia" && (
+        {id === "anlage" && (
           <>
             <path d="M7 5h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-6l-6 4v-4H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z" />
             <path d="m10 10 4 7 4-7M10 14h8" />
@@ -143,29 +143,12 @@ function ExperienceChapter({
             </p>
           )}
           <p className="experience-description">{item.description}</p>
-          <ul
-            className="experience-highlights"
-            aria-label={`${item.company} contributions`}
-          >
-            {item.highlights.map((highlight) => (
-              <li key={highlight.title}>
-                <span
-                  className="experience-highlight-mark"
-                  aria-hidden="true"
-                />
-                <div>
-                  <strong>{highlight.title}</strong>
-                  <p>{highlight.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
           <div className="experience-impact-heading">
             <span />
             THE IMPACT
           </div>
           <ul
-            className={`experience-impacts ${item.metrics.length === 1 ? "experience-impacts-single" : ""}`}
+            className="experience-impacts"
             aria-label={`${item.company} measurable achievements`}
           >
             {item.metrics.map((metric) => (
@@ -292,7 +275,7 @@ export default function ExperienceSection() {
       aria-labelledby="experience-section-title"
     >
       <div className="experience-inner">
-        <SectionIntro id="experience-section-title" number="04" title="THE JOURNEY" summary="4+ years of building products, solving problems and turning ideas into real-world products." className="experience-heading" reveal="experience" />
+        <SectionIntro id="experience-section-title" number="04" title="THE JOURNEY" summary="4+ years of engineering, solving problems and turning ideas into real-world products." className="experience-heading" reveal="experience" />
         <div className="experience-layout">
           <aside className="experience-index" aria-label="Career chapter index">
             <div className="experience-index-orbit" aria-hidden="true">
@@ -300,14 +283,6 @@ export default function ExperienceSection() {
               <i />
               <b />
             </div>
-            <p className="experience-index-label">
-              A JOURNEY IN
-              <br />
-              <span>THREE CHAPTERS.</span>
-            </p>
-            <p className="experience-index-direction">
-              Recent work to foundations
-            </p>
             <nav aria-label="Experience chapters">
               {EXPERIENCE.map((item, index) => (
                 <a

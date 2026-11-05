@@ -1,4 +1,4 @@
-export type ExperienceId = "luxia" | "magnibot" | "informist";
+export type ExperienceId = "anlage" | "magnibot" | "informist";
 
 export type ImpactMetric = {
   before?: string;
@@ -19,7 +19,6 @@ export type Experience = {
   chapter: string;
   accent: string;
   description: string;
-  highlights: readonly { title: string; text: string }[];
   metrics: readonly ImpactMetric[];
   tech: readonly string[];
 };
@@ -27,36 +26,16 @@ export type Experience = {
 // Supplied career history, in reverse chronological order. No role is marked current.
 export const EXPERIENCE: readonly Experience[] = [
   {
-    id: "luxia",
-    company: "Luxia AI",
+    id: "anlage",
+    company: "Anlage Infotech",
     role: "Full-Stack Developer",
-    focus: "Frontend-Focused",
     start: { iso: "2025-01", label: "January 2025" },
     end: { iso: "2026-04", label: "April 2026" },
     years: "2025 — 2026",
-    employment: "Through Anlage Infotech / Eigenlytics",
     chapter: "Conversational AI",
     accent: "#8bdcff",
     description:
-      "Built and enhanced AI-powered conversational experiences, focusing on frontend architecture, performance and seamless user interactions.",
-    highlights: [
-      {
-        title: "Interactive interfaces",
-        text: "React, TypeScript and Redux Toolkit chat interfaces and embeddable widgets.",
-      },
-      {
-        title: "Multimodal experiences",
-        text: "Interactive 3D avatars, voice interactions and customizable chat experiences.",
-      },
-      {
-        title: "Full-stack integration",
-        text: "Frontend and backend work with NestJS, PostgreSQL and REST APIs.",
-      },
-      {
-        title: "Product polish",
-        text: "Responsive layouts, theme customization and application reliability.",
-      },
-    ],
+      "Built AI-powered conversational experiences using React, TypeScript, NestJS and PostgreSQL, focusing on interactive interfaces, 3D avatars and application performance.",
     metrics: [
       {
         before: "900",
@@ -85,21 +64,7 @@ export const EXPERIENCE: readonly Experience[] = [
     chapter: "Performance & craft",
     accent: "#b8beff",
     description:
-      "Developed and optimized modern web applications with an emphasis on performance, maintainability and user experience.",
-    highlights: [
-      {
-        title: "Frontend delivery",
-        text: "Responsive features using React, Next.js and JavaScript.",
-      },
-      {
-        title: "Reusable foundations",
-        text: "Shared components and maintainable application architecture.",
-      },
-      {
-        title: "Connected applications",
-        text: "API integrations and frontend optimizations across the product.",
-      },
-    ],
+      "Developed responsive web applications using React, Next.js and JavaScript, building reusable components, integrating APIs and optimizing frontend performance and maintainability.",
     metrics: [
       {
         before: "1.8",
@@ -121,17 +86,7 @@ export const EXPERIENCE: readonly Experience[] = [
     chapter: "The foundations",
     accent: "#90deca",
     description:
-      "Started my professional journey building performant interfaces and learning how production applications are developed, deployed and maintained.",
-    highlights: [
-      {
-        title: "Interface foundations",
-        text: "Responsive web interfaces built with TypeScript and Tailwind CSS.",
-      },
-      {
-        title: "Production workflows",
-        text: "Helped streamline AWS rollback workflows and improve page-load performance.",
-      },
-    ],
+      "Built responsive web interfaces using TypeScript and Tailwind CSS, improved page-load performance and helped streamline AWS rollback workflows for production applications.",
     metrics: [
       { value: "~40", unit: "%", label: "Page-load performance improvement" },
       {

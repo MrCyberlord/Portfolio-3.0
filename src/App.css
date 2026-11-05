@@ -55,6 +55,10 @@ html { scroll-behavior: smooth; }
   min-height: var(--navigation-height);
   padding: 25px 24px;
 }
+.navigation--scrolled {
+  background: #03101d;
+  box-shadow: 0 8px 20px #03101d40;
+}
 .brand {
   font-size: 11px;
   font-weight: 600;
